@@ -83,4 +83,7 @@ void ResourceManager::CreateDefaultAnimation()
 	Add(animation->GetName(), animation);
 
 	animation->Save(L"TestAnimation.xml");
+
+	auto animation2 = std::make_shared<Animation>();
+	animation2->Load(L"TestAnimation.xml");
 }
