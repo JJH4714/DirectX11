@@ -3,7 +3,6 @@
 #include "Scene.h"
 #include "GameObject.h"
 #include "Camera.h"
-//#include "Transform.h"
 #include "MeshRenderer.h"
 #include "ResourceManager.h"
 #include "Mesh.h"
@@ -46,14 +45,11 @@ std::shared_ptr<Scene> SceneManager::_LoadTestScene()
 	std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 	
 	std::shared_ptr<GameObject> monster = std::make_shared<GameObject>(
-			m_graphics->GetDevice(), 
-			m_graphics->GetDeviceContext());
+			m_graphics->GetDevice());
 	if (monster)
 	{
 		monster->GetOrAddTransform();
-		auto meshRenderer = std::make_shared<MeshRenderer>(
-			m_graphics->GetDevice(),
-			m_graphics->GetDeviceContext());
+		auto meshRenderer = std::make_shared<MeshRenderer>(m_graphics->GetDevice());
 		monster->AddComponent(meshRenderer);
 
 		// TODO : Material
@@ -72,15 +68,13 @@ std::shared_ptr<Scene> SceneManager::_LoadTestScene()
 	}
 
 	// Camera
-	std::shared_ptr<GameObject> camera = std::make_shared<GameObject>(m_graphics->GetDevice(), m_graphics->GetDeviceContext());
+	std::shared_ptr<GameObject> camera = std::make_shared<GameObject>(m_graphics->GetDevice());
 	if (camera)
 	{
 		camera->GetOrAddTransform();
 		camera->AddComponent(std::make_shared<Camera>());
 		scene->AddGameObject(camera);
 	}
-
-
 
 	return scene;
 }

@@ -22,7 +22,7 @@ public:
 
 		// 상수버퍼 생성
 		HRESULT hr = m_device->CreateBuffer(&desc, nullptr, m_constantBuffer.GetAddressOf());
-		CHECK_HR(hr);
+		ASSERT(hr);
 	}
 
 	void CopyData(const T& data)

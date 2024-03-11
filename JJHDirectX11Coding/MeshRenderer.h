@@ -8,9 +8,7 @@ class Mesh;
 class MeshRenderer : public Component
 {
 public:
-	MeshRenderer(
-		ComPtr<ID3D11Device> device,
-		ComPtr<ID3D11DeviceContext> deviceContext);
+	MeshRenderer(ComPtr<ID3D11Device> device);
 	virtual ~MeshRenderer() = default;
 
 	void SetMaterial(std::shared_ptr<Material> material) { m_material = material; }

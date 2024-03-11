@@ -4,9 +4,7 @@
 #include "Game.h"
 #include "Mesh.h"
 
-MeshRenderer::MeshRenderer(
-	ComPtr<ID3D11Device> device, 
-	ComPtr<ID3D11DeviceContext> deviceContext)
+MeshRenderer::MeshRenderer(ComPtr<ID3D11Device> device)
 	: Component(ComponentType::MeshRenderer), m_device(device)
 {
 }

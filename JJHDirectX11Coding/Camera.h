@@ -16,7 +16,7 @@ public:
 	virtual void Update() override;
 
 	void SetProjectionType(ProjectionType type) { m_type = type; }
-	ProjectionType GetProjectionType() { return m_type; }
+	const ProjectionType GetProjectionType() const { return m_type; }
 
 	void UpdateMatrix();
 

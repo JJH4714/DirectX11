@@ -17,7 +17,7 @@ public:
 	virtual ~Animation();
 
 	void SetLoop(bool b) { m_bLoop = b; }
-	bool IsLoop() { return m_bLoop; }
+	bool IsLoop() const { return m_bLoop; }
 
 	void SetTexture(std::shared_ptr<Texture> texture) { m_texture = texture; }
 	std::shared_ptr<Texture> GetTexture() { return m_texture; }
@@ -27,7 +27,6 @@ public:
 	int32 GetKeyFrameCount();
 	void AddKeyFrame(const KeyFrame& keyFrame);
 
-protected:
 	virtual void Load(const std::wstring& path) override;
 	virtual void Save(const std::wstring& path) override;
 

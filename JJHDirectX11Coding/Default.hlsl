@@ -65,9 +65,16 @@ VS_OUTPUT VS(VS_INPUT input)
 
     if(useAnimation == 1.f)
     {
-        //@@ JJHCHECK
+        // 텍스쳐에서 애니메이션으로 이미지 좌표 가져옴
+        // spriteSize / textureSize -> 텍스쳐 전체에서 사용할 이미지만큼 축소
         output.uv *= spriteSize / textureSize;
+        // 곱해주면 텍스쳐가 사용할 이미지크기로 줄어듦
+
+        // spriteOffset / textureSize -> 실제 좌표를 0~1사이의 비율로 변환
         output.uv += spriteOffset / textureSize;
+        // 더해주면 사용할 이미지의 위치로 이동
+        
+        // -> 애니메이션 이미지 추출 완료
     }
 
     return output;

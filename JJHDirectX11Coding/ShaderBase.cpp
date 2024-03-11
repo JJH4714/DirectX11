@@ -31,7 +31,7 @@ void ShaderBase::LoadShaderFromFile(const std::wstring& path, const std::string&
 		nullptr
 	);
 
-	CHECK_HR(hr);
+	ASSERT(hr);
 }
 
 VertexShader::VertexShader(ComPtr<ID3D11Device> device)
@@ -54,7 +54,7 @@ void VertexShader::Create(const std::wstring& path, const std::string& name, con
 		nullptr,
 		m_vertexShader.GetAddressOf()	// 버텍스셰이더가 여기에 저장됨
 	);
-	CHECK_HR(hr);
+	ASSERT(hr);
 }
 
 PixelShader::PixelShader(ComPtr <ID3D11Device> device)
@@ -76,5 +76,5 @@ void PixelShader::Create(const std::wstring& path, const std::string& name, cons
 		nullptr,
 		m_pixelShader.GetAddressOf()
 	);
-	CHECK_HR(hr);
+	ASSERT(hr);
 }

@@ -48,7 +48,7 @@ std::shared_ptr<Animation> Animator::GetCurAnimation()
 	return m_curAnim;
 }
 
-const KeyFrame& Animator::GetCurKeyFrame()
+const KeyFrame& Animator::GetCurKeyFrame() const
 {
 	return m_curAnim->GetKeyFrame(m_curKeyFrameIdx);
 }

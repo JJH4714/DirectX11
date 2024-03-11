@@ -18,7 +18,7 @@ public:
 	void AddGameObject(std::shared_ptr<GameObject> gameObject);
 	void removeGameObject(std::shared_ptr<GameObject> gameObject);
 
-	const std::vector<std::shared_ptr<GameObject>>& GetGameObjects() { return m_vecGameObject; }
+	const std::vector<std::shared_ptr<GameObject>>& GetGameObjects() const { return m_vecGameObject; }
 
 private:
 	std::vector<std::shared_ptr<GameObject>> m_vecGameObject;

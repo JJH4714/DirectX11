@@ -5,7 +5,7 @@
 #include "MeshRenderer.h"
 #include "Animator.h"
 
-GameObject::GameObject(ComPtr<ID3D11Device> device, ComPtr<ID3D11DeviceContext> deviceContext) : m_device(device)
+GameObject::GameObject(ComPtr<ID3D11Device> device) : m_device(device)
 {
 }
 

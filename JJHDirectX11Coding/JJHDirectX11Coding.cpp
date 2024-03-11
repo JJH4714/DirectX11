@@ -104,7 +104,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   RECT  windowRect = { 0,0, GWinSizeX, GWinSizeY };
+   RECT windowRect = { 0,0, GWinSizeX, GWinSizeY };
    ::AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, false);
 
    // 윈도우 핸들. 나중에 쓸 거니까 전역으로...

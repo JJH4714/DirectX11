@@ -36,5 +36,5 @@ void SamplerState::Create()
 	desc.MipLODBias = 0.0f;
 
 	HRESULT hr = m_device->CreateSamplerState(&desc, m_samplerState.GetAddressOf());
-	CHECK_HR(hr);
+	ASSERT(hr);
 }

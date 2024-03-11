@@ -8,7 +8,7 @@ class Animator;
 class GameObject : public std::enable_shared_from_this<GameObject>
 {
 public:
-	GameObject(ComPtr<ID3D11Device> device, ComPtr<ID3D11DeviceContext> deviceContext);
+	GameObject(ComPtr<ID3D11Device> device);
 	~GameObject();
 
 	void Awake();

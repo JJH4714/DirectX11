@@ -26,8 +26,8 @@ public:
 	ResourceType GetType() { return m_type; }
 
 	void SetName(const std::wstring& name) { m_name = name; }
-	const std::wstring& GetName() { return m_name; }
-	uint32 GetID() { return m_id; }
+	const std::wstring& GetName() const { return m_name; }
+	const uint32 GetID() const { return m_id; }
 
 protected:
 	virtual void Load(const std::wstring& path) {}

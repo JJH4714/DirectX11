@@ -40,7 +40,7 @@ public:
 
 		// 버텍스 버퍼에 결과물을 받게 됨
 		HRESULT hr = m_device->CreateBuffer(&desc, &data, m_vertexBuffer.GetAddressOf());
-		CHECK_HR(hr);
+		ASSERT(hr);
 	}
 	
 private:

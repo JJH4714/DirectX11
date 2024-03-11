@@ -13,7 +13,7 @@ public:
 	void Update();
 
 	std::shared_ptr<Animation> GetCurAnimation();
-	const KeyFrame& GetCurKeyFrame();
+	const KeyFrame& GetCurKeyFrame() const;
 
 	void SetAnimation(std::shared_ptr<Animation> animation) { m_curAnim = animation;  }
 

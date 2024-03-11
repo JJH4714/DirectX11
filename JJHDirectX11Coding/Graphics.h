@@ -22,7 +22,7 @@ private:
 	uint32 m_width = 0;
 	uint32 m_height = 0;
 
-	float m_clearColor[4] = { 0.0f , 0.0f, 0.0f , 1.0f };
+	const float m_clearColor[4] = { 0.0f , 0.0f, 0.0f , 1.0f };
 
 	// Device , Context, SwapChain
 	ComPtr<ID3D11Device> m_device;

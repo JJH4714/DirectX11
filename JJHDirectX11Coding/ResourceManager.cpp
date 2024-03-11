@@ -81,4 +81,6 @@ void ResourceManager::CreateDefaultAnimation()
 	animation->AddKeyFrame(KeyFrame(Vec2(300.f, 0.f), Vec2(100.f, 100.f), 0.1f));
 
 	Add(animation->GetName(), animation);
+
+	animation->Save(L"TestAnimation.xml");
 }

@@ -218,6 +218,9 @@
     <ClInclude Include="Animator.h">
       <Filter>소스 파일\00. Engine\Component\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>소스 파일\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="JJHDirectX11Coding.rc">
@@ -343,6 +346,9 @@
     </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>소스 파일\00. Engine\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>소스 파일\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

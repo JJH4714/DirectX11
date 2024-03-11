@@ -30,5 +30,5 @@ void RasterizerState::Create()
 	// 초기에 인덱스버퍼를 시계방향으로 잡아줬던 이유가 이거...
 	desc.FrontCounterClockwise = false;
 	HRESULT hr = m_device->CreateRasterizerState(&desc, m_rasterizerState.GetAddressOf());
-	CHECK_HR(hr);
+	ASSERT(hr);
 }

@@ -20,5 +20,5 @@ void BlendState::Create(D3D11_RENDER_TARGET_BLEND_DESC blendDesc, float fFactor)
 
 	desc.RenderTarget[0] = blendDesc;
 	HRESULT hr = m_device->CreateBlendState(&desc, m_blendState.GetAddressOf());
-	CHECK_HR(hr);
+	ASSERT(hr);
 }

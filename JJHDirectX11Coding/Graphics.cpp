@@ -1,12 +1,8 @@
 #include "pch.h"
 #include "Graphics.h"
 
-Graphics::Graphics(HWND hwnd)
+Graphics::Graphics(HWND hwnd) : m_hwnd(hwnd), m_width(GWinSizeX), m_height(GWinSizeY)
 {
-	m_hwnd = hwnd;
-	m_width = GWinSizeX;
-	m_height = GWinSizeY;
-
 	_CreateDeviceAndSwapChain();
 	_CreateRenderTargetView();
 	_SetViewPort();
@@ -19,7 +15,7 @@ Graphics::~Graphics()
 void Graphics::RenderBegin()
 {
 	// OM : Output Merge , 렌더링 가장 마지막 단계, 렌더타겟 지정
-	m_deviceContext->OMSetRenderTargets(1,/*후면 버퍼 개수*/m_renderTargetView.GetAddressOf(), nullptr);
+	m_deviceContext->OMSetRenderTargets(1/*후면 버퍼 개수*/,m_renderTargetView.GetAddressOf(), nullptr);
 
 	// 렌더타겟뷰를 원하는 색상으로 클리어시킴
 	m_deviceContext->ClearRenderTargetView(m_renderTargetView.Get(), m_clearColor);
@@ -33,7 +29,7 @@ void Graphics::RenderEnd()
 	// 후면 버퍼에 다 그렸으면, 전면 버퍼에 복사해야 함(혹은 교체인데 이건 케바케(?))
 	// 그린 걸 화면에 출력하도록 복사해주는 게 Present
 	HRESULT hr = m_swapChain->Present(1, 0);
-	CHECK_HR(hr);
+	ASSERT(hr);
 }
 
 void Graphics::_CreateDeviceAndSwapChain()
@@ -42,7 +38,7 @@ void Graphics::_CreateDeviceAndSwapChain()
 	ZeroMemory(&desc, sizeof(desc));
 	// 윈도우 800,600으로 해뒀는데, 버퍼도 그에 맞아야 하니까 똑같이 설정
 	desc.BufferDesc.Width = m_width;	// 창 크기
-	desc.BufferDesc.Height = m_height;	// 창 크기
+	desc.BufferDesc.Width = m_width;	// 창 크기
 	// 화면 주사율 관련
 	desc.BufferDesc.RefreshRate.Numerator = 60;
 	desc.BufferDesc.RefreshRate.Denominator = 1;
@@ -72,7 +68,7 @@ void Graphics::_CreateDeviceAndSwapChain()
 		m_deviceContext.GetAddressOf()
 	);
 
-	CHECK_HR(hr);
+	ASSERT(hr);
 }
 
 void Graphics::_CreateRenderTargetView()
@@ -80,7 +76,7 @@ void Graphics::_CreateRenderTargetView()
 	ComPtr<ID3D11Texture2D> backBuffer = nullptr;
 	// 백버퍼 텍스쳐를 만들어 스왑체인이 들고 있는 후면 버퍼 정보를 텍스쳐 타입으로 가져옴
 	HRESULT hr = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)backBuffer.GetAddressOf());
-	CHECK_HR(hr);
+	ASSERT(hr);
 
 	hr = m_device->CreateRenderTargetView(
 		// 인자가 ID3D11Resource 인데, ID3D11Texture2D가 저걸 상속받음
@@ -88,16 +84,14 @@ void Graphics::_CreateRenderTargetView()
 		nullptr,
 		m_renderTargetView.GetAddressOf()
 	);
-	CHECK_HR(hr);
+	ASSERT(hr);
 }
 
 void Graphics::_SetViewPort()
 {
 	m_viewPort.TopLeftX = 0.0f;
 	m_viewPort.TopLeftY = 0.0f;
-	//m_viewPort.Width = STATIC_CAST(float, m_width);
 	m_viewPort.Width = static_cast<float>(m_width);
-	//m_viewPort.Height = STATIC_CAST(float, m_height);
 	m_viewPort.Height = static_cast<float>(m_height);
 	m_viewPort.MinDepth = 0.0f;
 	m_viewPort.MaxDepth = 1.0f;
