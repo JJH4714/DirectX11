@@ -120,10 +120,148 @@ void GeometryHelper::CreateCube(shared_ptr<Geometry<VertexTextureData>> geometry
 
 void GeometryHelper::CreateSphere(shared_ptr<Geometry<VertexTextureData>> geometry)
 {
+	float radius = 0.5f; // 구의 반지름
 
+	// '구' 정점 : 가로로 여러 개 분할하면 평면의 원이 나옴
+	// 그 원에서 다시 여러 점까지 연결해 분할(세로 분할)
+	// 완벽한 원은 아니지만, 촘촘하게 분할하면 '구'에 가까울듯
+	uint32 stackCount = 20; // 가로 분할
+	uint32 sliceCount = 20; // 세로 분할
+
+	vector<VertexTextureData> vtx;
+
+	VertexTextureData v;
+
+	// 북극
+	v.position = Vec3(0.0f, radius, 0.0f);
+	v.uv = Vec2(0.5f, 0.0f);
+	vtx.push_back(v);
+
+	// 가로 분할. 북극~남극까지는 길이가 (원둘레/2)니까 PI
+	float stackAngle = XM_PI / stackCount;
+	// 세로 분할. 원둘레 / 세로로 분할할 수
+	float sliceAngle = XM_2PI / sliceCount;
+
+	float deltaU = 1.f / static_cast<float>(sliceCount);
+	float deltaV = 1.f / static_cast<float>(stackCount);
+
+	// 고리마다 돌면서 정점을 계산한다 (북극/남극 단일점은 고리가 X)
+	for (uint32 y = 1; y <= stackCount - 1; ++y)
+	{
+		float phi = y * stackAngle;
+
+		// 고리에 위치한 정점들
+		for (uint32 x = 0; x <= sliceCount; ++x)
+		{
+			float theta = x * sliceAngle;
+
+			v.position.x = radius * sinf(phi) * cosf(theta);
+			v.position.y = radius * cosf(phi);
+			v.position.z = radius * sinf(phi) * sinf(theta);
+
+			v.uv = Vec2(deltaU * x, deltaV * y);
+
+			vtx.push_back(v);
+		}
+	}
+
+	// 남극
+	v.position = Vec3(0.0f, -radius, 0.0f);
+	v.uv = Vec2(0.5f, 1.0f);
+	vtx.push_back(v);
+
+	geometry->SetVertices(vtx);
+
+	vector<uint32> idx(36);
+
+	// 북극 인덱스
+	for (uint32 i = 0; i <= sliceCount; ++i)
+	{
+		//  [0]
+		//   |  \\
+		//  [i+1]-[i+2]
+		idx.push_back(0);
+		idx.push_back(i + 2);
+		idx.push_back(i + 1);
+	}
+
+	// 몸통 인덱스
+	uint32 ringVertexCount = sliceCount + 1;
+	for (uint32 y = 0; y < stackCount - 2; ++y)
+	{
+		for (uint32 x = 0; x < sliceCount; ++x)
+		{
+			//  [y, x]-[y, x+1]
+			//  |		/
+			//  [y+1, x]
+			idx.push_back(1 + (y)*ringVertexCount + (x));
+			idx.push_back(1 + (y)*ringVertexCount + (x + 1));
+			idx.push_back(1 + (y + 1) * ringVertexCount + (x));
+			//		 [y, x+1]
+			//		 /	  |
+			//  [y+1, x]-[y+1, x+1]
+			idx.push_back(1 + (y + 1) * ringVertexCount + (x));
+			idx.push_back(1 + (y)*ringVertexCount + (x + 1));
+			idx.push_back(1 + (y + 1) * ringVertexCount + (x + 1));
+		}
+	}
+
+	// 남극 인덱스
+	uint32 bottomIndex = static_cast<uint32>(vtx.size()) - 1;
+	uint32 lastRingStartIndex = bottomIndex - ringVertexCount;
+	for (uint32 i = 0; i < sliceCount; ++i)
+	{
+		//  [last+i]-[last+i+1]
+		//  |      /
+		//  [bottom]
+		idx.push_back(bottomIndex);
+		idx.push_back(lastRingStartIndex + i);
+		idx.push_back(lastRingStartIndex + i + 1);
+	}
+
+	geometry->SetIndices(idx);
 }
 
-void GeometryHelper::CreateGrid(shared_ptr<Geometry<VertexTextureData>> geometry)
+void GeometryHelper::CreateGrid(shared_ptr<Geometry<VertexTextureData>> geometry, int32 sizeX, int32 sizeZ)
 {
+	vector<VertexTextureData> vtx;
 
+	// 그리드는 격자모양이라서 사각형이 n개라면 한 줄의 정점은 n+1개
+	for (int32 z = 0; z < sizeZ + 1; ++z)
+	{
+		for (int32 x = 0; x < sizeX + 1; ++x)
+		{
+			VertexTextureData v;
+			v.position = Vec3(static_cast<float>(x), 0, static_cast<float>(z));
+			//v.uv = Vec2(static_cast<float>(x), static_cast<float>(sizeZ - z));
+			v.uv = Vec2(static_cast<float>(x), static_cast<float>(z));
+
+			vtx.push_back(v);
+		}
+	}
+
+	geometry->SetVertices(vtx);
+
+	vector<uint32> idx;
+
+	for (int32 z = 0; z < sizeZ; ++z)
+	{
+		for (int32 x = 0; x < sizeX; ++x)
+		{
+			//	[0]
+			//	 |	 \
+			//	[2] - [1]
+			idx.push_back((sizeX + 1) * (z + 1) + (x));
+			idx.push_back((sizeX + 1) * (z)+(x + 1));
+			idx.push_back((sizeX + 1) * (z)+(x));
+			//	[1] - [2]
+			//	  \	   |
+			//		  [0]
+			idx.push_back((sizeX + 1) * (z)+(x + 1));
+			idx.push_back((sizeX + 1) * (z + 1) + (x));
+			idx.push_back((sizeX + 1) * (z + 1) + (x + 1));
+		}
+	}
+
+	geometry->SetIndices(idx);
 }

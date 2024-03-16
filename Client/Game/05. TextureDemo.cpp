@@ -10,7 +10,9 @@ void TextureDemo::Init()
 
 	_geometry = make_shared<Geometry<VertexTextureData>>();
 	//GeometryHelper::CreateQuad(_geometry);
-	GeometryHelper::CreateCube(_geometry);
+	//GeometryHelper::CreateCube(_geometry);
+	//GeometryHelper::CreateSphere(_geometry);
+	GeometryHelper::CreateGrid(_geometry, 256, 256);
 
 	_vertexBuffer = make_shared<VertexBuffer>();
 	_vertexBuffer->Create(_geometry->GetVertices());
@@ -23,6 +25,8 @@ void TextureDemo::Init()
 	_camera->GetOrAddTransform();
 	_camera->AddComponent(make_shared<Camera>());
 	_camera->AddComponent(make_shared<CameraScript>());
+	Vec3 pos = _camera->GetTransform()->GetPosition();
+	_camera->GetTransform()->SetPosition(Vec3(pos.x, pos.y + 5, pos.z));
 
 	RESOURCES->Load<Texture>(L"Sannabi", L"..\\Resources\\Textures\\Sannabi.jpg");
 }

@@ -19,7 +19,5 @@ private:
 
 	//Camera
 	shared_ptr<GameObject> _camera;
-
-	shared_ptr<Texture> _texture;
 };
 

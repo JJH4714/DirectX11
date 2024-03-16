@@ -28,6 +28,9 @@ VertexOutput VS(VertexInput input)
 }
 
 SamplerState Sampler0;
+// 딱히 설정을 안 해두면 기본값으로 적용됨.
+// 그래서...터레인 깔면 일부분만 정상적인 텍스쳐 나오고 나머진 비정상
+// 샘플러스테이트는 uv좌표가 0~1사이인데, 그 범위를 벗어났을 떄에 대해 처리를 함
 
 // 픽셀 셰이더 , 버텍스에서 가공된 게 인풋으로
 float4 PS(VertexOutput input) : SV_TARGET

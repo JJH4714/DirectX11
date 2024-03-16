@@ -10,5 +10,5 @@ public:
 	virtual void Start() override;
 	virtual void Update() override;
 
-	float _speed = 3.f;
+	float _speed = 10.f;
 };

@@ -6,6 +6,8 @@
 #include "Game/03. ConstBufferDemo.h"
 #include "Game/04. CameraDemo.h"
 #include "Game/05. TextureDemo.h"
+#include "Game/06. SamplerDemo.h"
+#include "Game/07. HeightMapDemo.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
@@ -21,7 +23,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//desc.app = make_shared<QuadDemo>();
 	//desc.app = make_shared<ConstBufferDemo>();
 	//desc.app = make_shared<CameraDemo>();
-	desc.app = make_shared<TextureDemo>();
+	//desc.app = make_shared<TextureDemo>();
+	//desc.app = make_shared<SamplerDemo>();
+	desc.app = make_shared<HeightMapDemo>();
 
 	GAME->Run(desc);
 
