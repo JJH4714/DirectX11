@@ -12,6 +12,7 @@
 #include "Game/09. MeshDemo.h"
 #include "Game/10. GlobalTestDemo.h"
 #include "Game/11. DepthStencilDemo.h"
+#include "Game/12. AmbientDemo.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
@@ -22,7 +23,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	desc.hWnd = NULL;
 	desc.width = 800;
 	desc.height = 600;
-	desc.clearColor = Color(0.5f, 0.5f, 0.5f, 0.5f);
+	desc.clearColor = Color(0.f, 0.f, 0.f, 0.f);
 	//desc.app = make_shared<TriangleDemo>();	// 내가 실행할 앱 ( 실행 단위 )
 	//desc.app = make_shared<QuadDemo>();
 	//desc.app = make_shared<ConstBufferDemo>();
@@ -33,7 +34,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//desc.app = make_shared<NormalDemo>();
 	//desc.app = make_shared<MeshDemo>();
 	//desc.app = make_shared<GlobalTestDemo>();
-	desc.app = make_shared<DepthStencilDemo>();
+	//desc.app = make_shared<DepthStencilDemo>();
+	desc.app = make_shared<AmbientDemo>();
 
 	GAME->Run(desc);
 
