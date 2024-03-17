@@ -8,6 +8,10 @@
 #include "Game/05. TextureDemo.h"
 #include "Game/06. SamplerDemo.h"
 #include "Game/07. HeightMapDemo.h"
+#include "Game/08. NormalDemo.h"
+#include "Game/09. MeshDemo.h"
+#include "Game/10. GlobalTestDemo.h"
+#include "Game/11. DepthStencilDemo.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
@@ -25,7 +29,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//desc.app = make_shared<CameraDemo>();
 	//desc.app = make_shared<TextureDemo>();
 	//desc.app = make_shared<SamplerDemo>();
-	desc.app = make_shared<HeightMapDemo>();
+	//desc.app = make_shared<HeightMapDemo>();
+	//desc.app = make_shared<NormalDemo>();
+	//desc.app = make_shared<MeshDemo>();
+	//desc.app = make_shared<GlobalTestDemo>();
+	desc.app = make_shared<DepthStencilDemo>();
 
 	GAME->Run(desc);
 

@@ -40,6 +40,9 @@ void SamplerDemo::Render()
 	_shader->GetMatrix("View")->SetMatrix((float*)&Camera::S_MatView);	// ¼ÎÀÌ´õ¿¡¼­ matrix View
 	_shader->GetMatrix("Projection")->SetMatrix((float*)&Camera::S_MatProjection);	// ¼ÎÀÌ´õ¿¡¼­ matrix Projection
 	_shader->GetSRV("Texture0")->SetResource(RESOURCES->Get<Texture>(L"Sannabi")->GetComPtr().Get());	//Texture2D Texture0
+	
+	float color[4] = { 0.f, 1.f, 0.f, 1.f };
+	_shader->GetScalar("Color")->SetFloatArray((float*)color, 0,4);
 
 	uint32 stride = _vertexBuffer->GetStride();
 	uint32 offset = _vertexBuffer->GetOffset();

@@ -26,6 +26,10 @@
     <ClInclude Include="Game\05. TextureDemo.h" />
     <ClInclude Include="Game\06. SamplerDemo.h" />
     <ClInclude Include="Game\07. HeightMapDemo.h" />
+    <ClInclude Include="Game\08. NormalDemo.h" />
+    <ClInclude Include="Game\09. MeshDemo.h" />
+    <ClInclude Include="Game\10. GlobalTestDemo.h" />
+    <ClInclude Include="Game\11. DepthStencilDemo.h" />
     <ClInclude Include="Main\Camera\CameraScript.h" />
     <ClInclude Include="Main\Main.h" />
     <ClInclude Include="pch.h" />
@@ -38,6 +42,10 @@
     <ClCompile Include="Game\05. TextureDemo.cpp" />
     <ClCompile Include="Game\06. SamplerDemo.cpp" />
     <ClCompile Include="Game\07. HeightMapDemo.cpp" />
+    <ClCompile Include="Game\08. NormalDemo.cpp" />
+    <ClCompile Include="Game\09. MeshDemo.cpp" />
+    <ClCompile Include="Game\10. GlobalTestDemo.cpp" />
+    <ClCompile Include="Game\11. DepthStencilDemo.cpp" />
     <ClCompile Include="Main\Camera\CameraScript.cpp" />
     <ClCompile Include="Main\Main.cpp" />
     <ClCompile Include="pch.cpp">
@@ -79,6 +87,27 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\07. Normal.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\08. GlobalTest.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\Common\00. Global.fx">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
   </ItemGroup>

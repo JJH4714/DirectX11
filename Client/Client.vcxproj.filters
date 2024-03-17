@@ -13,6 +13,9 @@
     <Filter Include="Main\Camera">
       <UniqueIdentifier>{612ebdc3-c04b-44dc-8a31-a62fe7d54031}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders\Common">
+      <UniqueIdentifier>{0b13e52d-5a87-4442-b7de-9c11c03e459f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -41,6 +44,18 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\07. HeightMapDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\08. NormalDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\09. MeshDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\10. GlobalTestDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\11. DepthStencilDemo.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +88,18 @@
     <ClInclude Include="Game\07. HeightMapDemo.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\08. NormalDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\09. MeshDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\10. GlobalTestDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\11. DepthStencilDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Shaders\01. Triangle.fx">
@@ -91,6 +118,15 @@
       <Filter>Shaders</Filter>
     </FxCompile>
     <FxCompile Include="..\Shaders\06. Terrain.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\07. Normal.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\Common\00. Global.fx">
+      <Filter>Shaders\Common</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\08. GlobalTest.fx">
       <Filter>Shaders</Filter>
     </FxCompile>
   </ItemGroup>

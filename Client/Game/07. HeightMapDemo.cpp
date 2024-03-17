@@ -15,7 +15,6 @@ void HeightMapDemo::Init()
 	const int width = _heightMap->GetSize().x;
 	const int height = _heightMap->GetSize().y;
 
-	//@@ JJHCHECK
 	const auto& info = _heightMap->GetInfo();
 	uint8* pixelBuffer = info.GetPixels();
 

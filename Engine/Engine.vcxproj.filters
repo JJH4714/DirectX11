@@ -109,6 +109,15 @@
     <ClCompile Include="03. GameObject\GameObject.cpp">
       <Filter>03. GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="00. Engine\Resource\Mesh.cpp">
+      <Filter>00. Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="04. Component\MeshRenderer.cpp">
+      <Filter>04. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="02. Manager\RenderManager.cpp">
+      <Filter>02. Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="99. Headers\Define.h">
@@ -192,6 +201,15 @@
     </ClInclude>
     <ClInclude Include="03. GameObject\GameObject.h">
       <Filter>03. GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="00. Engine\Resource\Mesh.h">
+      <Filter>00. Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="04. Component\MeshRenderer.h">
+      <Filter>04. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="02. Manager\RenderManager.h">
+      <Filter>02. Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

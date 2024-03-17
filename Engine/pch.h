@@ -61,16 +61,7 @@ using namespace Microsoft::WRL;
 #include "02. Manager/InputManager.h"
 #include "02. Manager/TimeManager.h"
 #include "02. Manager/ResourceManager.h"
-
-#define CHECK(p)	assert(SUCCEEDED(p))
-#define GAME		GET_SINGLE(Game)		
-#define GRAPHICS	GET_SINGLE(Graphics)
-#define DEVICE		GRAPHICS->GetDevice()
-#define DC			GRAPHICS->GetDeviceContext()
-#define INPUT		GET_SINGLE(InputManager)
-#define TIME		GET_SINGLE(TimeManager)
-#define DT			TIME->GetDeltaTime()
-#define RESOURCES	GET_SINGLE(ResourceManager)
+#include "02. Manager/RenderManager.h"
 
 // Engine
 #include "01. Graphics/Buffer/VertexData.h"
@@ -83,6 +74,6 @@ using namespace Microsoft::WRL;
 #include "03. GameObject/GameObject.h"
 #include "04. Component/Transform.h"
 #include "00. Engine/Resource/Texture.h"
-//#include "Mesh.h"
+#include "00. Engine/Resource/Mesh.h"
 
 #endif //PCH_H
