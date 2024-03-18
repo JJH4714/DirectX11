@@ -61,6 +61,12 @@
     <ClCompile Include="Game\12. AmbientDemo.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\13. DiffuseDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\14. SpecularDemo.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -106,6 +112,12 @@
     <ClInclude Include="Game\12. AmbientDemo.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\13. DiffuseDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\14. SpecularDemo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Shaders\01. Triangle.fx">
@@ -136,6 +148,12 @@
       <Filter>Shaders</Filter>
     </FxCompile>
     <FxCompile Include="..\Shaders\09. Lighting_Ambient.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\10. Lighting_Diffuse.fx">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\11. Lighting_Specular.fx">
       <Filter>Shaders</Filter>
     </FxCompile>
   </ItemGroup>

@@ -31,6 +31,8 @@
     <ClInclude Include="Game\10. GlobalTestDemo.h" />
     <ClInclude Include="Game\11. DepthStencilDemo.h" />
     <ClInclude Include="Game\12. AmbientDemo.h" />
+    <ClInclude Include="Game\13. DiffuseDemo.h" />
+    <ClInclude Include="Game\14. SpecularDemo.h" />
     <ClInclude Include="Main\Camera\CameraScript.h" />
     <ClInclude Include="Main\Main.h" />
     <ClInclude Include="pch.h" />
@@ -48,6 +50,8 @@
     <ClCompile Include="Game\10. GlobalTestDemo.cpp" />
     <ClCompile Include="Game\11. DepthStencilDemo.cpp" />
     <ClCompile Include="Game\12. AmbientDemo.cpp" />
+    <ClCompile Include="Game\13. DiffuseDemo.cpp" />
+    <ClCompile Include="Game\14. SpecularDemo.cpp" />
     <ClCompile Include="Main\Camera\CameraScript.cpp" />
     <ClCompile Include="Main\Main.cpp" />
     <ClCompile Include="pch.cpp">
@@ -104,6 +108,18 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="..\Shaders\09. Lighting_Ambient.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\10. Lighting_Diffuse.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="..\Shaders\11. Lighting_Specular.fx">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Effect</ShaderType>

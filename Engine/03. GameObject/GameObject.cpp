@@ -113,7 +113,6 @@ std::shared_ptr<Transform> GameObject::GetOrAddTransform()
 
 void GameObject::AddComponent(std::shared_ptr<Component> component)
 {
-	// JJHCHECK
 	// 그냥 this로 넘겨주게 되면 레퍼런스 카운트를 이중으로 관리하게 되어 메모리 오염...
 	component->SetGameObject(shared_from_this());
 
