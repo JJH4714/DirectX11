@@ -15,6 +15,8 @@
 #include "Game/12. AmbientDemo.h"
 #include "Game/13. DiffuseDemo.h"
 #include "Game/14. SpecularDemo.h"
+#include "Game/15. EmissiveDemo.h"
+#include "Game/16. LightingDemo.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
@@ -39,7 +41,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//desc.app = make_shared<DepthStencilDemo>();
 	//desc.app = make_shared<AmbientDemo>();
 	//desc.app = make_shared<DiffuseDemo>();
-	desc.app = make_shared<SpecularDemo>();
+	//desc.app = make_shared<SpecularDemo>();
+	//desc.app = make_shared<EmissiveDemo>();
+	desc.app = make_shared<LightingDemo>();
 
 	GAME->Run(desc);
 

@@ -85,5 +85,10 @@ pass name                                                   \
         SetPixelShader(CompileShader(ps_5_0, ps##()));      \
 }                                                           \
 
+float3 CameraPosition()
+{
+    return -V._41_42_43;
+}
+
 #endif
 
