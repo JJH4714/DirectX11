@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="00. Engine\IExecute.h" />
+    <ClInclude Include="00. Engine\Resource\Material.h" />
     <ClInclude Include="00. Engine\Resource\Mesh.h" />
     <ClInclude Include="00. Engine\Resource\ResourceBase.h" />
     <ClInclude Include="00. Engine\Resource\Texture.h" />
@@ -186,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="00. Engine\IExecute.cpp" />
+    <ClCompile Include="00. Engine\Resource\Material.cpp" />
     <ClCompile Include="00. Engine\Resource\Mesh.cpp" />
     <ClCompile Include="00. Engine\Resource\ResourceBase.cpp" />
     <ClCompile Include="00. Engine\Resource\Texture.cpp" />

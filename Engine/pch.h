@@ -75,5 +75,6 @@ using namespace Microsoft::WRL;
 #include "04. Component/Transform.h"
 #include "00. Engine/Resource/Texture.h"
 #include "00. Engine/Resource/Mesh.h"
+#include "00. Engine/Resource/Material.h"
 
 #endif //PCH_H

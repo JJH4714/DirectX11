@@ -1,7 +1,8 @@
 #ifndef _LIHGT_FX_
 #define _LIHGT_FX_
 
-#include "00. Global.fx"
+//#include "00. Global.fx"
+#include "Common/00. Global.fx"
 
 // 이전에 개별적으로 나눈 조명들 합침
 struct LightDesc
